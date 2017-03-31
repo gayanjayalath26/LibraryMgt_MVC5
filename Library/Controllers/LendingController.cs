@@ -50,7 +50,7 @@ namespace Library.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LendID,Book_CopyID,MemberID")] Lend lend)
+        public ActionResult Create([Bind(Include = "LendID,Book_CopyID,MemberID,LendingDate,ExpiredDate")] Lend lend)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Library.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LendID,Book_CopyID,MemberID")] Lend lend)
+        public ActionResult Edit([Bind(Include = "LendID,Book_CopyID,MemberID,LendingDate,ExpiredDate")] Lend lend)
         {
             if (ModelState.IsValid)
             {

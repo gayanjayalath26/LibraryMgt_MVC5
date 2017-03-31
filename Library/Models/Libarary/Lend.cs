@@ -16,5 +16,9 @@ namespace Library.Models.Libarary
         public Book_Copy Book_Copy { get; set; }
 
         public Member Member { get; set; }
+
+        public DateTime LendingDate { get; set; }
+
+        public DateTime ExpiredDate { get; set; }
     }
 }
