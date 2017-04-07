@@ -37,10 +37,11 @@ namespace Library.Controllers
             return View(lend);
         }
 
-        // GET: Lending/Create
+        // GET mekeek: Lending/Create
+        [Authorize]
         public ActionResult Create()
         {
-            ViewBag.Book_CopyID = new SelectList(db.Book_Copy, "Book_CopyID", "Name");
+            ViewBag.Book_CopyID = new SelectList(db.Book_Copy, "Book Copy", "Name");
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "MemberName");
             return View();
         }
@@ -54,6 +55,8 @@ namespace Library.Controllers
         {
             if (ModelState.IsValid)
             {
+                Book_Copy oBook_Copy = db.Book_Copy.Where(r => r.Book_CopyID == lend.Book_CopyID).FirstOrDefault();
+                oBook_Copy.LendingStatus = true;
                 db.Lends.Add(lend);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -65,6 +68,7 @@ namespace Library.Controllers
         }
 
         // GET: Lending/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -100,6 +104,7 @@ namespace Library.Controllers
         }
 
         // GET: Lending/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -115,6 +120,7 @@ namespace Library.Controllers
         }
 
         // POST: Lending/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

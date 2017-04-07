@@ -38,6 +38,7 @@ namespace Library.Controllers
         }
 
         // GET: Book/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -61,6 +62,7 @@ namespace Library.Controllers
         }
 
         // GET: Book/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -107,6 +109,7 @@ namespace Library.Controllers
         }
 
         // POST: Book/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

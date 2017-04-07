@@ -38,6 +38,7 @@ namespace Library.Controllers
         }
 
         // GET: Book_Copy/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.BookID = new SelectList(db.Books, "BookID", "BookName");
@@ -63,6 +64,7 @@ namespace Library.Controllers
         }
 
         // GET: Book_Copy/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -96,6 +98,7 @@ namespace Library.Controllers
         }
 
         // GET: Book_Copy/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

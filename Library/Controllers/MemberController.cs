@@ -37,6 +37,7 @@ namespace Library.Controllers
         }
 
         // GET: Member/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -60,6 +61,7 @@ namespace Library.Controllers
         }
 
         // GET: Member/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +93,7 @@ namespace Library.Controllers
         }
 
         // GET: Member/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -106,6 +109,7 @@ namespace Library.Controllers
         }
 
         // POST: Member/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
