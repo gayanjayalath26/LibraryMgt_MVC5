@@ -41,7 +41,7 @@ namespace Library.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.Book_CopyID = new SelectList(db.Book_Copy, "Book Copy", "Name");
+            ViewBag.Book_CopyID = new SelectList(db.Book_Copy, "Book_CopyID", "Name");
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "MemberName");
             return View();
         }
